@@ -1,0 +1,8 @@
+{
+  "name": "ColorAtlas animations",
+  "description": "modern color analyzing webpage",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
