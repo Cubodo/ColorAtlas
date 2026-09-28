@@ -21,8 +21,7 @@ import {
   Check, 
   Pipette, 
   ArrowDown, 
-  Sparkles,
-  ArrowRight
+  Sparkles
 } from 'lucide-react';
 import { ColorSquareSelector, ColorCoordinate, RGB } from './ColorSquareSelector';
 import { MagneticButton } from './MagneticButton';
@@ -624,18 +623,6 @@ export const ColorStudioMinimal: React.FC<ColorStudioMinimalProps> = ({
                       <span>Copy Code</span>
                     </>
                   )}
-                </button>
-
-                <button
-                  onClick={() => {
-                    onSelectSpecimen(primaryMatch.specimen);
-                    onNavigateSection('specimens');
-                  }}
-                  className="flex items-center gap-1 px-2.5 py-1.5 text-xs font-specimen-mono text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors cursor-pointer"
-                  title="Inspect in Archive"
-                >
-                  <span className="hidden md:inline">Inspect</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-all" />
                 </button>
               </div>
             </motion.div>
