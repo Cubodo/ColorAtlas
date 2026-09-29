@@ -6,7 +6,7 @@
 import React, { useState } from 'react';
 import { motion, useScroll, useSpring } from 'motion/react';
 import { ThemeMode, ActiveSection, PantoneSpecimen } from '../types';
-import { Sun, Moon, Eye, Bookmark, Download, Sparkles, Copy, Check } from 'lucide-react';
+import { Sun, Moon, Eye, Bookmark, Download, Sparkles, Copy, Check, Camera } from 'lucide-react';
 import { MagneticButton } from './MagneticButton';
 
 interface HeaderEditorialProps {
@@ -33,6 +33,7 @@ export const HeaderEditorial: React.FC<HeaderEditorialProps> = ({
     { id: 'archive', label: 'Studio', icon: Sparkles },
     { id: 'specimens', label: 'Matches', icon: Eye },
     { id: 'palettes', label: 'Palettes', icon: Bookmark },
+    { id: 'photo', label: 'Photo', icon: Camera },
     { id: 'export', label: 'Export', icon: Download },
   ];
 

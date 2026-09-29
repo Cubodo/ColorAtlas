@@ -11,9 +11,9 @@ import { hexToRgb, rgbToLab, findClosestPantoneMatches } from './utils/colorScie
 import { HeaderEditorial } from './components/HeaderEditorial';
 import { ColorStudioMinimal } from './components/ColorStudioMinimal';
 import { SpecimenGrid } from './components/SpecimenGrid';
-import { ComparisonStudy } from './components/ComparisonStudy';
 import { PaletteGallery } from './components/PaletteGallery';
 import { ExportPublication } from './components/ExportPublication';
+import { PhotoColorExtractor } from './components/PhotoColorExtractor';
 import { AmbientBackground } from './components/AmbientBackground';
 
 export default function App() {
@@ -153,9 +153,9 @@ export default function App() {
     const targetMap: Record<ActiveSection, string> = {
       archive: 'color-studio',
       specimens: 'specimens-archive',
-      comparison: 'comparison-view',
       palettes: 'palette-studies',
       export: 'export-blocks',
+      photo: 'photo-extractor',
     };
     const el = document.getElementById(targetMap[section]);
     if (el) {
@@ -201,14 +201,6 @@ export default function App() {
           onAddToPalette={handleAddToPalette}
         />
 
-        {/* Side-by-side Visual Comparison */}
-        <ComparisonStudy
-          userHex={currentColorHex}
-          activeSpecimen={activeSpecimen}
-          closestMatch={primaryMatch}
-          onSelectSpecimen={handleSelectSpecimen}
-        />
-
         {/* Harmonic Palettes & Proportional Studies */}
         <PaletteGallery
           studies={allPaletteStudies}
@@ -226,6 +218,14 @@ export default function App() {
           matches={closestMatches}
           userHex={currentColorHex}
         />
+
+        {/* Photo Sampling & Color Gradient Extractor */}
+        <PhotoColorExtractor
+          onSelectColor={handleColorChange}
+          onSelectSpecimen={handleSelectSpecimen}
+          onAddStudy={handleAddStudy}
+          onNavigateSection={(section) => handleSelectSection(section)}
+        />
       </main>
 
       {/* Clean Modernist Footer */}
@@ -237,7 +237,7 @@ export default function App() {
             <span>5,000+ Calibrated Standards Archive</span>
           </div>
 
-          <div className="flex items-center gap-6 text-[var(--text-faint)]">
+          <div className="flex items-center gap-6 text-[var(--text-faint)] flex-wrap">
             <button
               onClick={() => handleSelectSection('archive')}
               className="hover:text-[var(--text-primary)] transition-colors cursor-pointer"
@@ -255,6 +255,12 @@ export default function App() {
               className="hover:text-[var(--text-primary)] transition-colors cursor-pointer"
             >
               Palettes
+            </button>
+            <button
+              onClick={() => handleSelectSection('photo')}
+              className="hover:text-[var(--text-primary)] transition-colors cursor-pointer text-[var(--text-primary)] font-medium"
+            >
+              Photo Extractor
             </button>
             <button
               onClick={() => handleSelectSection('export')}

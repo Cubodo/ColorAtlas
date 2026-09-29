@@ -64,5 +64,5 @@ export interface PaletteStudy {
 
 export type ThemeMode = 'dark' | 'light';
 
-export type ActiveSection = 'archive' | 'specimens' | 'comparison' | 'palettes' | 'export';
+export type ActiveSection = 'archive' | 'specimens' | 'palettes' | 'export' | 'photo';
 
